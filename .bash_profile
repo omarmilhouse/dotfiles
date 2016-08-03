@@ -1,6 +1,9 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/.bin:$PATH";
 
+# Add `~/.phpenv/bin` to the `$PATH`
+export PATH="$HOME/.phpenv/bin:$PATH";
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -27,6 +30,9 @@ done;
 
 # Settings for RBENV
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Settings for PHPENV
+eval "$(phpenv init -)";
 
 # Add tab completion for many Bash commands
 if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
