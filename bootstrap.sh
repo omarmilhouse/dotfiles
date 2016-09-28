@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-git pull origin master;
+# git pull origin master;
 
 function doIt() {
 	rsync --exclude ".git/" \
@@ -12,10 +12,13 @@ function doIt() {
 		--exclude "brew.sh" \
 		--exclude "init" \
 		--exclude "bin" \
+		--exclude "bash_completion" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
+
+	cp ./bash_completion/git-completion.bash /usr/local/etc/bash_completion.d/
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

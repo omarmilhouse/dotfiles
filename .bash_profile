@@ -38,8 +38,8 @@ eval "$(phpenv init -)";
 eval "$(pyenv init -)"
 
 # Setting for GIT completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
 # Add tab completion for many Bash commands
