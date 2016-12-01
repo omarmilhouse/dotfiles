@@ -152,3 +152,8 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Symfony
+alias symschemaupdate="app/console doctrine:schema:update --force"
+alias symcacheclear="app/console cache:clear"
+alias symassetdump="app/console assetic:dump"
