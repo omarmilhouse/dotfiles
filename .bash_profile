@@ -29,7 +29,7 @@ done;
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Settings for PYENV
-if which pyenv > /dev/null; then eval "$(pyenv init -)" fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Settings for PHP-VERSION - https://github.com/wilmoore/php-version
 if which php-version > /dev/null; then
