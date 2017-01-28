@@ -1,9 +1,6 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/.bin:$PATH";
 
-# Add `~/.phpenv/bin` to the `$PATH`
-export PATH="$HOME/.phpenv/bin:$PATH";
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -31,11 +28,13 @@ done;
 # Settings for RBENV
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Settings for PHPENV
-eval "$(phpenv init -)";
-
 # Settings for PYENV
-eval "$(pyenv init -)"
+if which pyenv > /dev/null; then eval "$(pyenv init -)" fi
+
+# Settings for PHP-VERSION - https://github.com/wilmoore/php-version
+if which php-version > /dev/null; then
+	source $(brew --prefix php-version)/php-version.sh && php-version 5	
+fi
 
 # Setting for GIT completion
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
