@@ -7,6 +7,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # Add '/usr/local/sbin' to the `$PATH`
 export PATH="/usr/local/sbin:$PATH"
 
+# Config PYENV_ROOT
+export PYENV_ROOT=/usr/local/var/pyenv
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
