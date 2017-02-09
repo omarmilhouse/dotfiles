@@ -105,12 +105,28 @@ else
 	hostStyle="${yellow}";
 fi;
 
+# Prompt project
+prompt_project() {
+	local version
+	if [ -e 'Gemfile' ]; then
+		version=$([ -f .ruby-version ] && cat .ruby-version)
+		echo -e " [ruby $version]"
+	elif [ -e 'composer.json' ]; then
+		version=$([ -f .php-version ] && cat .php-version)
+		current_version=$(php -v | grep "^PHP " | awk '{ print $2}')
+		echo -e " [PHP $version ~ $current_version]"
+	else
+		return;
+	fi
+}
+
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";
-PS1+="\[${hostStyle}\]\h"; # host
+# PS1+="\[${hostStyle}\]\h"; # host
+PS1+="\$(prompt_project)";
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
