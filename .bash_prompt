@@ -111,7 +111,7 @@ prompt_project() {
 	if [ -e 'Gemfile' ]; then
 		version=$([ -f .ruby-version ] && cat .ruby-version)
 		echo -e " [ruby $version]"
-	elif [ -e 'composer.json' ]; then
+	elif [ -e 'composer.json' ] || [ -e '.php-version' ]; then
 		version=$(php -v | grep "^PHP " | awk '{ print $2}')
 		echo -e " [PHP $version]"
 	else
