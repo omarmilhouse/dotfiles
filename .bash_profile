@@ -41,7 +41,13 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Settings for PHP-VERSION - https://github.com/wilmoore/php-version
-source $(brew --prefix php-version)/php-version.sh && php-version 5
+source $(brew --prefix php-version)/php-version.sh && [ -f ".php-version" ] && php-version $(cat .php-version)
+
+function cd() {
+  for last; do true; done
+  [ -f "$last/.php-version" ] && php-version $(cat $last/.php-version)
+  builtin cd "$@"
+}
 
 # Setting for GIT completion
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then

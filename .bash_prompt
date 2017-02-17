@@ -113,8 +113,8 @@ prompt_project() {
 		echo -e " [ruby $version]"
 	elif [ -e 'composer.json' ]; then
 		version=$([ -f .php-version ] && cat .php-version)
-		current_version=$(php -v | grep "^PHP " | awk '{ print $2}')
-		echo -e " [PHP $version ~ $current_version]"
+		# current_version=$(php -v | grep "^PHP " | awk '{ print $2}')
+		echo -e " [PHP $version]"
 	else
 		return;
 	fi
