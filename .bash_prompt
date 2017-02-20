@@ -108,12 +108,12 @@ fi;
 # Prompt project
 prompt_project() {
 	local version
-	if [ -e 'Gemfile' ]; then
-		version=$([ -f .ruby-version ] && cat .ruby-version)
-		echo -e " [ruby $version]"
-	elif [ -e 'composer.json' ] || [ -e '.php-version' ]; then
+	if [ -e 'composer.json' ] || [ -e '.php-version' ]; then
 		version=$(php -v | grep "^PHP " | awk '{ print $2}')
 		echo -e " [PHP $version]"
+	elif [ -e 'Gemfile' ]; then
+		version=$([ -f .ruby-version ] && cat .ruby-version)
+		echo -e " [ruby $version]"
 	else
 		return;
 	fi
