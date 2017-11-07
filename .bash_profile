@@ -13,6 +13,10 @@ export PATH=$HOME/.composer/vendor/bin
 # Config PYENV_ROOT
 export PYENV_ROOT=/usr/local/var/pyenv
 
+# Config NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
