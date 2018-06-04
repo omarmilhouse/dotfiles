@@ -46,6 +46,9 @@ prompt_git() {
 
 		fi;
 
+		local heroku_env
+		heroku_env=`git remote -v 2>/dev/null | grep heroku | grep fetch | awk '{print $2}' | sed -e 's/.*\/\(.*\)\.git/\1/g'`
+
 		# Get the short symbolic ref.
 		# If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
 		# Otherwise, just give up.
@@ -55,7 +58,11 @@ prompt_git() {
 
 		[ -n "${s}" ] && s=" [${s}]";
 
-		echo -e "${1}${branchName}${2}${s}";
+		if [[ ! "$heroku_env" ]]; then
+			echo -e "${1}${branchName}${blue}${s}";
+		else
+			echo -e " [${yellow}heroku $heroku_env${white}]${1}${branchName}${blue}${s}";
+		fi
 	else
 		return;
 	fi;
