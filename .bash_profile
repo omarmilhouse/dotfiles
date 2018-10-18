@@ -12,6 +12,7 @@ export PATH=$HOME/.composer/vendor/bin
 
 # Config PYENV_ROOT
 export PYENV_ROOT=/usr/local/var/pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Config NVM
 export NVM_DIR="$HOME/.nvm"
