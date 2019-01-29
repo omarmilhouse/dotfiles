@@ -7,9 +7,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # Add '/usr/local/sbin' to the `$PATH`
 export PATH="/usr/local/sbin:$PATH"
 
-# Add composer bin path to the `$PATH`
-export PATH=$HOME/.composer/vendor/bin
-
 # Config PYENV_ROOT
 export PYENV_ROOT=/usr/local/var/pyenv
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -49,7 +46,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Settings for PHP-VERSION - https://github.com/wilmoore/php-version
-source $(brew --prefix php-version)/php-version.sh && [ -f ".php-version" ] && php-version $(cat .php-version)
+if which php-version > /dev/null; then source $(brew --prefix php-version)/php-version.sh && [ -f ".php-version" ] && php-version $(cat .php-version); fi
 
 function cd() {
   for last; do true; done
