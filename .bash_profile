@@ -52,6 +52,7 @@ function cd() {
   for last; do true; done
   [ -f "$last/.php-version" ] && php-version $(cat $last/.php-version)
   builtin cd "$@"
+  [ -f ".nvmrc" ] && nvm use
 }
 
 # Setting for GIT completion
